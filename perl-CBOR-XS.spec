@@ -4,7 +4,7 @@
 #
 Name     : perl-CBOR-XS
 Version  : 1.83
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.83.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.83.tar.gz
 Summary  : unknown
