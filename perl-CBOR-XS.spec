@@ -4,7 +4,7 @@
 #
 Name     : perl-CBOR-XS
 Version  : 1.86
-Release  : 24
+Release  : 25
 URL      : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.86.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.86.tar.gz
 Summary  : unknown
@@ -101,5 +101,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/CBOR/XS.pm
-/usr/lib/perl5/vendor_perl/5.34.0/x86_64-linux-thread-multi/auto/CBOR/XS/XS.so
+/usr/lib/perl5/*
