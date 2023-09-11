@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-CBOR-XS
-Version  : 1.86
-Release  : 31
-URL      : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.86.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.86.tar.gz
+Version  : 1.87
+Release  : 32
+URL      : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.87.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/M/ML/MLEHMANN/CBOR-XS-1.87.tar.gz
 Summary  : unknown
 Group    : Development/Tools
 License  : GPL-3.0
@@ -15,6 +15,7 @@ Requires: perl-CBOR-XS-license = %{version}-%{release}
 Requires: perl-CBOR-XS-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Canary::Stability)
+BuildRequires : perl(Task::Weaken)
 BuildRequires : perl(Types::Serialiser)
 BuildRequires : perl(common::sense)
 # Suppress stripping binaries
@@ -55,8 +56,11 @@ perl components for the perl-CBOR-XS package.
 
 
 %prep
-%setup -q -n CBOR-XS-1.86
-cd %{_builddir}/CBOR-XS-1.86
+%setup -q -n CBOR-XS-1.87
+cd %{_builddir}/CBOR-XS-1.87
+pushd ..
+cp -a CBOR-XS-1.87 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -91,6 +95,7 @@ find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
